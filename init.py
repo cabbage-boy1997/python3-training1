@@ -1,12 +1,45 @@
 #毎ターン同じ技しか出せない
-#効果は抜群、今ひとつ
+#効果は抜群、今ひとつ(3type)
 #攻撃、防御、特攻、特防、素早さ
 #コマンドJ or viewのterminal
-#
+
+    #技を四つ覚えてランダムに使用できる
+    #素早さが高い方が先に攻撃する
+class Pokemon(object):
+    def __init__(self,level,pokemontype = "ノーマル"):
+        self.level = level
+        self.hp = 100
+        self.speed = 50
+        self.pokemontype = pokemontype
+        self.name = "pokemon"
+
+    def status(self):
+        return f"{なまえ:{self.name} | レベル:{self.level} | タイプ:{self.pokemontype} | HP:{self.hp} | すばやさ:{self.speed}}"
+
+class Onna(Pokemon):
+    def __init__(self, level):
+        super().__init__(level)
+        self.hp += 5 * level
+        self.speed += 3 * level
+        if self.pokemontype == "ノーマル":
+            self.pokemontype = "ほのお"
+        if self.name == "pokemon":
+            self.name = "女"
 
 
-onna_hp = 100
-pikachu_hp = 150
+class Pikachu(Pokemon):
+    def __init__(self, level):
+        super().__init__(level)
+        self.hp += 4 * level
+        self.speed += 4 * level
+        if self.pokemontype == "ノーマル":
+            self.pokemontype = "でんき"
+        if self.name == "pokemon":
+            self.name = "ピカチュウ"
+
+def
+
+
 
 onna_waza = {
      "はたく" : 50,
