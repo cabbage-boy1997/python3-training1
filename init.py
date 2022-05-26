@@ -57,13 +57,14 @@ print(f"行っておいで、{creature_friend.name}! \n")
 waza_p = creature_friend.pikachu_waza
 waza_o = creature_enemy.onna_waza
 
-print(f"{creature_friend.name}はどうする？")
-print("0~3の番号で技を選択")
-for i in range(4):
-    print(waza_p[i])
 
 
 while True:    #どちらかが倒れるまで繰り返す
+
+    print(f"{creature_friend.name}はどうする？")
+    print("0~3の番号で技を選択")
+    for i in range(4):
+        print(waza_p[i]) 
 
     n = int(input())
     r = random.randint(0, 3)
