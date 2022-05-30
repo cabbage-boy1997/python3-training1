@@ -1,13 +1,14 @@
-#毎ターン同じ技しか出せない
-#効果は抜群、今ひとつ(3type)
-#攻撃、防御、特攻、特防、素早さ
-#コマンドJ or viewのterminal
+# 毎ターン同じ技しか出せない
+# 効果は抜群、今ひとつ(3type)
+# 攻撃、防御、特攻、特防、素早さ
+# コマンドJ or viewのterminal
 
 import random
 
+# 技を四つ覚えてランダムに使用できる
+# 素早さが高い方が先に攻撃する
 
-    #技を四つ覚えてランダムに使用できる
-    #素早さが高い方が先に攻撃する
+
 class Pokemon(object):
     def __init__(self, level, pokemontype, name):
         self.level = level
@@ -18,6 +19,7 @@ class Pokemon(object):
 
     def status(self):
         return f"{なまえ:{self.name} | レベル:{self.level} | タイプ:{self.pokemontype} | HP:{self.hp} | すばやさ:{self.speed}}"
+
 
 class Onna(Pokemon):
     def __init__(self, level):
@@ -44,15 +46,16 @@ class Pikachu(Pokemon):
              {"name": "たいあたり", "damage": 20}
          ]
 
+
 def main():
 
-    #敵と遭遇（野生）
+    # 敵と遭遇（野生）
     creature_enemy = Onna(50)
     onna_hp = creature_enemy.hp
     print(f"野生の{creature_enemy.name}が現れた！")
 
 
-    #自分のポケモン出す
+    # 自分のポケモン出す
     creature_friend = Pikachu(50)
     pikachu_hp = creature_friend.hp
     print(f"行っておいで、{creature_friend.name}! \n")
@@ -60,27 +63,24 @@ def main():
     waza_p = creature_friend.pikachu_waza
     waza_o = creature_enemy.onna_waza
 
-
-
-    while True:    #どちらかが倒れるまで繰り返す
+    while True:  # どちらかが倒れるまで繰り返す
 
         print(f"{creature_friend.name}はどうする？")
         print("0~3の番号で技を選択")
+
         for i in range(4):
-            print(waza_p[i]) 
+            print(waza_p[i])
 
         n = int(input())
         r = random.randint(0, 3)
 
         if creature_friend.speed >= creature_enemy.speed:
-
             onna_hp -= waza_p[n]["damage"]
             print(f"{creature_friend.name} の {waza_p[n]['name']} こうげき！")
             print(f"{creature_enemy.name} に {waza_p[n]['damage']} のダメージ！")
             print(f"{creature_enemy.name} 残りHP {onna_hp} \n")
-            #自分の攻撃ターン
 
-
+            # 自分の攻撃ターン
             if onna_hp <= 0:
                 print(f"野生の{creature_enemy.name}はたおれた！")
                 break
@@ -89,36 +89,33 @@ def main():
             print(f"{creature_enemy.name} の {waza_o[r]['name']} こうげき！")
             print(f"{creature_friend.name} に {waza_o[r]['damage']} のダメージ！")
             print(f"{creature_friend.name} 残りHP {pikachu_hp} \n")
-            #相手の攻撃ターン
 
+            # 相手の攻撃ターン
             if pikachu_hp <= 0:
                 print(f"{creature_friend.name}はたおれた！")
                 break
-
-
-
         
         else:
             pikachu_hp -= waza_o[r]["damage"]
             print(f"{creature_enemy.name} の {waza_o[r]['name']} こうげき！")
             print(f"{creature_friend.name} に {waza_o[r]['damage']} のダメージ！")
             print(f"{creature_friend.name} 残りHP {pikachu_hp} \n")
-            #相手の攻撃ターン
 
-            
+            # 相手の攻撃ターン
             if pikachu_hp <= 0:
                 print(f"{creature_friend.name}はたおれた！")
                 break
-            
+
             onna_hp -= waza_p[n]["damage"]
             print(f"{creature_friend.name} の {waza_p[n]['name']} こうげき！")
             print(f"{creature_enemy.name} に {waza_p[n]['damage']} のダメージ！")
             print(f"{creature_enemy.name} 残りHP {onna_hp} \n")
-            #自分の攻撃ターン
 
+            # 自分の攻撃ターン
             if onna_hp <= 0:
                 print(f"野生の{creature_enemy.name}はたおれた！")
                 break
+
 
 if __name__ == "__main__":
     main()
