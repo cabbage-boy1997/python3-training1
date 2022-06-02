@@ -1,0 +1,58 @@
+{
+	"pikachu_status": {
+		"name": "ピカチュウ",
+		"HP": 100,
+		"type": "でんき",
+		"speed": 70,
+		"waza": [
+			{
+				"waza_name": "でんきショック",
+				"damage": 50,
+				"waza_type": "でんき"
+			},
+			{
+				"waza_name": "ボルテッカー",
+				"damage": 100,
+				"waza_type": "でんき"
+			},
+			{
+				"waza_name": "しっぽをふる",
+				"damage": 10,
+				"waza_type": "ノーマル"
+			},
+			{
+				"waza_name": "たいあたり",
+				"damage": 20,
+				"waza_type": "ノーマル"
+			}
+		]
+	},
+	"onna_status": {
+		"name": "女の子",
+		"HP": 120,
+		"type": "ノーマル",
+		"speed": 70,
+		"waza": [
+			{
+				"waza_name": "はたく",
+				"damage": 50,
+				"waza_type": "でんき"
+			},
+			{
+				"waza_name": "のしかかり",
+				"damage": 100,
+				"waza_type": "でんき"
+			},
+			{
+				"waza_name": "なきごえ",
+				"damage": 10,
+				"waza_type": "ノーマル"
+			},
+			{
+				"waza_name": "どくどく",
+				"damage": 30,
+				"waza_type": "ノーマル"
+			}
+		]
+	}
+}
